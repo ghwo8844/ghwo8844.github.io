@@ -10,8 +10,8 @@ import ColorScheme exposing (background)
 
 cam = 
     camera [ position 0 1.6 0, far 1000 ] [
-        cursor [ fuse True , position 0 0 5, color cursor] [
-            
+        cursor [ fuse True , position 0 0 -1, color cursor] [
+
         ]
     ]
 
