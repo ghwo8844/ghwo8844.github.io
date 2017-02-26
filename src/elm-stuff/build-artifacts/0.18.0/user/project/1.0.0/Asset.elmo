@@ -1,5 +1,5 @@
 var _user$project$Asset$cylinders = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$cylinder,
 			{
@@ -23,7 +23,7 @@ var _user$project$Asset$cylinders = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$spheres = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$sphere,
 			{
@@ -47,7 +47,7 @@ var _user$project$Asset$spheres = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$cubes = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -71,7 +71,7 @@ var _user$project$Asset$cubes = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$tables = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -79,7 +79,7 @@ var _user$project$Asset$tables = F6(
 				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX * 1.5, scaleY, scaleZ * 1.5),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
@@ -95,7 +95,7 @@ var _user$project$Asset$tables = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$chairs = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -103,7 +103,7 @@ var _user$project$Asset$chairs = F6(
 				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX * 0.5, scaleY, scaleZ * 0.5),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),

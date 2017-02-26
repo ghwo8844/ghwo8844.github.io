@@ -14,25 +14,25 @@ addAsset num arr message =
     insert num message arr
 
 chairs : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
-chairs x z scaleX scaleY scaleZ num =
+chairs scaleX scaleY scaleZ x z num =
     box [ 
         position x (scaleY / 2 + 0.5) z,
-        scale scaleX scaleY scaleZ,
+        scale (scaleX * 0.5) scaleY (scaleZ * 0.5),
         color red,
         id (toString num)
     ] [ ]
 
 tables : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
-tables x z scaleX scaleY scaleZ num =
+tables scaleX scaleY scaleZ x z num =
     box [
         position x (scaleY / 2 + 0.5) z,
-        scale scaleX scaleY scaleZ,
+        scale (scaleX * 1.5) scaleY (scaleZ * 1.5),
         color orange,
         id (toString num)
     ] [ ]
 
 cubes : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
-cubes x z scaleX scaleY scaleZ num =
+cubes scaleX scaleY scaleZ x z num =
     box [
         position x (scaleY / 2 + 0.5) z,
         scale scaleX scaleY scaleZ,
@@ -41,7 +41,7 @@ cubes x z scaleX scaleY scaleZ num =
     ] [ ]
 
 spheres : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
-spheres x z scaleX scaleY scaleZ num =
+spheres scaleX scaleY scaleZ x z num =
     sphere [ 
         position x (scaleY / 2 + 0.5) z,
         scale scaleX scaleY scaleZ,
@@ -50,7 +50,7 @@ spheres x z scaleX scaleY scaleZ num =
     ] [ ]
 
 cylinders : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
-cylinders x z scaleX scaleY scaleZ num =
+cylinders scaleX scaleY scaleZ x z num =
     cylinder [
         position x (scaleY / 2 + 0.5) z,
         scale scaleX scaleY scaleZ,

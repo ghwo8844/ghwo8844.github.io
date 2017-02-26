@@ -8795,7 +8795,7 @@ var _user$project$ColorScheme$ground = A3(_elm_lang$core$Color$rgb, 70, 70, 70);
 var _user$project$ColorScheme$cursorColor = A3(_elm_lang$core$Color$rgb, 150, 150, 150);
 
 var _user$project$Asset$cylinders = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$cylinder,
 			{
@@ -8819,7 +8819,7 @@ var _user$project$Asset$cylinders = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$spheres = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$sphere,
 			{
@@ -8843,7 +8843,7 @@ var _user$project$Asset$spheres = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$cubes = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -8867,7 +8867,7 @@ var _user$project$Asset$cubes = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$tables = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -8875,7 +8875,7 @@ var _user$project$Asset$tables = F6(
 				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX * 1.5, scaleY, scaleZ * 1.5),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
@@ -8891,7 +8891,7 @@ var _user$project$Asset$tables = F6(
 			{ctor: '[]'});
 	});
 var _user$project$Asset$chairs = F6(
-	function (x, z, scaleX, scaleY, scaleZ, num) {
+	function (scaleX, scaleY, scaleZ, x, z, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -8899,7 +8899,7 @@ var _user$project$Asset$chairs = F6(
 				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX * 0.5, scaleY, scaleZ * 0.5),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
@@ -9435,7 +9435,7 @@ var _user$project$Main$Chair = F5(
 var _user$project$Main$handleVal = function (val) {
 	return _elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		0) ? A5(
+		4) ? A5(
 		_user$project$Main$Chair,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
@@ -9458,7 +9458,7 @@ var _user$project$Main$handleVal = function (val) {
 						_user$project$Main$back(
 							_user$project$Main$back(val))))))) : (_elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		1) ? A5(
+		3) ? A5(
 		_user$project$Main$Table,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
@@ -9481,7 +9481,7 @@ var _user$project$Main$handleVal = function (val) {
 						_user$project$Main$back(
 							_user$project$Main$back(val))))))) : (_elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		2) ? A5(
+		0) ? A5(
 		_user$project$Main$Cube,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
@@ -9504,7 +9504,7 @@ var _user$project$Main$handleVal = function (val) {
 						_user$project$Main$back(
 							_user$project$Main$back(val))))))) : (_elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		3) ? A5(
+		1) ? A5(
 		_user$project$Main$Sphere,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),

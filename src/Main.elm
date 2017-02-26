@@ -62,13 +62,13 @@ back list =
 
 handleVal : List Float -> Msg
 handleVal val =
-    if (first val == 0) then
+    if (first val == 4) then
         Chair (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))
-    else if (first val == 1) then
-        Table (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))
-    else if (first val == 2) then
-        Cube (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))
     else if (first val == 3) then
+        Table (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))
+    else if (first val == 0) then
+        Cube (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))
+    else if (first val == 1) then
         Sphere (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))
     else
         Cylinder (first ( back val )) (first ( back ( back val ) )) (first ( back ( back ( back val ) ) )) (first ( back ( back ( back ( back val ) ) ) )) (first ( back ( back ( back ( back ( back val ) ) ) ) ))

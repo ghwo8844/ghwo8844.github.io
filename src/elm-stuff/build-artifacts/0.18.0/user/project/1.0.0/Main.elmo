@@ -371,7 +371,7 @@ var _user$project$Main$Chair = F5(
 var _user$project$Main$handleVal = function (val) {
 	return _elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		0) ? A5(
+		4) ? A5(
 		_user$project$Main$Chair,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
@@ -394,7 +394,7 @@ var _user$project$Main$handleVal = function (val) {
 						_user$project$Main$back(
 							_user$project$Main$back(val))))))) : (_elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		1) ? A5(
+		3) ? A5(
 		_user$project$Main$Table,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
@@ -417,7 +417,7 @@ var _user$project$Main$handleVal = function (val) {
 						_user$project$Main$back(
 							_user$project$Main$back(val))))))) : (_elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		2) ? A5(
+		0) ? A5(
 		_user$project$Main$Cube,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
@@ -440,7 +440,7 @@ var _user$project$Main$handleVal = function (val) {
 						_user$project$Main$back(
 							_user$project$Main$back(val))))))) : (_elm_lang$core$Native_Utils.eq(
 		_user$project$Main$first(val),
-		3) ? A5(
+		1) ? A5(
 		_user$project$Main$Sphere,
 		_user$project$Main$first(
 			_user$project$Main$back(val)),
