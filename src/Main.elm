@@ -59,7 +59,7 @@ view model =
         assets [ ] [
             assetItem [ 
                 id "table-obj",
-                src "https://github.com/ghwo8844/ghwo8844.github.io/tree/master/assets/RageTable.obj"
+                src "./assets/RageTable.obj"
             ] [ ]
         ]
         , entity [ objModel "table-obj", position 0 0 0, scale 0.05 0.05 0.05, material red ] [ ]
