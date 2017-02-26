@@ -269,9 +269,16 @@ var _user$project$AFrame_Primitives_Attributes$groundColor = function (value) {
 		'ground-color',
 		_user$project$AFrame_Primitives_Attributes$colorToHex(value));
 };
-var _user$project$AFrame_Primitives_Attributes$objModel = function (id) {
-	return A2(
-		_elm_lang$html$Html_Attributes$attribute,
-		'obj-model',
-		A2(_elm_lang$core$Basics_ops['++'], 'obj: #', id));
-};
+var _user$project$AFrame_Primitives_Attributes$objModel = F2(
+	function (idobj, idmtl) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'obj-model',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'obj: #',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					idobj,
+					A2(_elm_lang$core$Basics_ops['++'], '; mtl: #', idmtl))));
+	});

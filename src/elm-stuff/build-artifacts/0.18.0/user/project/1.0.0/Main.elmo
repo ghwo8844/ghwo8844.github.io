@@ -15,7 +15,7 @@ var _user$project$Main$view = function (model) {
 						_user$project$AFrame_Primitives$assetItem,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$id('table'),
+							_0: _elm_lang$html$Html_Attributes$id('table-obj'),
 							_1: {
 								ctor: '::',
 								_0: _user$project$AFrame_Primitives_Attributes$src('./assets/RageTable.obj'),
@@ -23,7 +23,22 @@ var _user$project$Main$view = function (model) {
 							}
 						},
 						{ctor: '[]'}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_user$project$AFrame_Primitives$assetItem,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$id('table-mtl'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$AFrame_Primitives_Attributes$src('./assets/RageTable.mtl'),
+									_1: {ctor: '[]'}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}
 				}),
 			_1: {
 				ctor: '::',
@@ -31,7 +46,7 @@ var _user$project$Main$view = function (model) {
 					_user$project$AFrame$entity,
 					{
 						ctor: '::',
-						_0: _user$project$AFrame_Primitives_Attributes$objModel('table'),
+						_0: A2(_user$project$AFrame_Primitives_Attributes$objModel, 'table-obj', 'table-mtl'),
 						_1: {
 							ctor: '::',
 							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 10, 0),

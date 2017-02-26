@@ -58,11 +58,15 @@ view model =
     scene [ ] [ 
         assets [ ] [
             assetItem [ 
-                id "table",
+                id "table-obj",
                 src "./assets/RageTable.obj"
+            ] [ ] ,
+            assetItem [ 
+                id "table-mtl",
+                src "./assets/RageTable.mtl"
             ] [ ]
         ]
-        , entity [ objModel "table", position 0 10 0 ] [ ]
+        , entity [ objModel "table-obj" "table-mtl", position 0 10 0 ] [ ]
         , cam
         , entity [ ] [ 
                 box [ 

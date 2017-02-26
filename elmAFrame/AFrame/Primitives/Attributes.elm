@@ -25,9 +25,9 @@ import Char
 
 -- Mesh attributes
 
-objModel : String -> Attribute msg
-objModel id =
-    attribute "obj-model" ("obj: #" ++ id)
+objModel : String -> String -> Attribute msg
+objModel idobj idmtl =
+    attribute "obj-model" ("obj: #" ++ idobj ++ "; mtl: #" ++ idmtl)
 
 
 
