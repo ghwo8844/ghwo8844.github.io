@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (id)
 import AFrame exposing (scene, entity)
 import AFrame.Primitives exposing (assets, assetItem, box)
-import AFrame.Primitives.Attributes exposing (position, color, src, scale, objModel)
+import AFrame.Primitives.Attributes exposing (position, color, src, scale, objModel, material)
 import String exposing (length)
 import CameraConfig exposing (..)
 import ColorScheme exposing (..)
@@ -60,13 +60,9 @@ view model =
             assetItem [ 
                 id "table-obj",
                 src "./assets/RageTable.obj"
-            ] [ ] ,
-            assetItem [ 
-                id "table-mtl",
-                src "./assets/RageTable.mtl"
             ] [ ]
         ]
-        , entity [ objModel "table-obj" "table-mtl", position 0 0 0, scale 0.05 0.05 0.05 ] [ ]
+        , entity [ objModel "table-obj", position 0 0 0, scale 0.05 0.05 0.05, material red ] [ ]
         , cam
         , entity [ ] [ 
                 box [ 

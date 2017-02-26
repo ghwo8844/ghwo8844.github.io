@@ -8598,19 +8598,21 @@ var _user$project$AFrame_Primitives_Attributes$groundColor = function (value) {
 		'ground-color',
 		_user$project$AFrame_Primitives_Attributes$colorToHex(value));
 };
-var _user$project$AFrame_Primitives_Attributes$objModel = F2(
-	function (idobj, idmtl) {
-		return A2(
-			_elm_lang$html$Html_Attributes$attribute,
-			'obj-model',
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'obj: #',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					idobj,
-					A2(_elm_lang$core$Basics_ops['++'], '; mtl: #', idmtl))));
-	});
+var _user$project$AFrame_Primitives_Attributes$objModel = function (idobj) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'obj-model',
+		A2(_elm_lang$core$Basics_ops['++'], 'obj: #', idobj));
+};
+var _user$project$AFrame_Primitives_Attributes$material = function (color) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'material',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			'color: #',
+			_user$project$AFrame_Primitives_Attributes$colorToHex(color)));
+};
 
 var _user$project$AFrame_Primitives_Camera$wasdControlsEnabled = function (value) {
 	return A2(
@@ -8844,22 +8846,7 @@ var _user$project$Main$view = function (model) {
 							}
 						},
 						{ctor: '[]'}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_user$project$AFrame_Primitives$assetItem,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$id('table-mtl'),
-								_1: {
-									ctor: '::',
-									_0: _user$project$AFrame_Primitives_Attributes$src('./assets/RageTable.mtl'),
-									_1: {ctor: '[]'}
-								}
-							},
-							{ctor: '[]'}),
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
@@ -8867,14 +8854,18 @@ var _user$project$Main$view = function (model) {
 					_user$project$AFrame$entity,
 					{
 						ctor: '::',
-						_0: A2(_user$project$AFrame_Primitives_Attributes$objModel, 'table-obj', 'table-mtl'),
+						_0: _user$project$AFrame_Primitives_Attributes$objModel('table-obj'),
 						_1: {
 							ctor: '::',
 							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
 							_1: {
 								ctor: '::',
 								_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 5.0e-2, 5.0e-2, 5.0e-2),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: _user$project$AFrame_Primitives_Attributes$material(_user$project$ColorScheme$red),
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					},

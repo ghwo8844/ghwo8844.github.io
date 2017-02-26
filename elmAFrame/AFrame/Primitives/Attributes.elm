@@ -25,9 +25,13 @@ import Char
 
 -- Mesh attributes
 
-objModel : String -> String -> Attribute msg
-objModel idobj idmtl =
-    attribute "obj-model" ("obj: #" ++ idobj ++ "; mtl: #" ++ idmtl)
+material : Color -> Attribute msg
+material color =
+    attribute "material" ("color: #" ++ colorToHex color)
+
+objModel : String -> Attribute msg
+objModel idobj =
+    attribute "obj-model" ("obj: #" ++ idobj)
 
 
 
