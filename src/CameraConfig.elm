@@ -9,8 +9,8 @@ import Html exposing (Html)
 import ColorScheme exposing (background)
 
 cam = 
-    camera [ position 0 1.6 0, far 1000 ] [
-        cursor [ fuse True , position 0 0 -1, color cursor] [
+    camera [ position 0 1.6 5, far 1000 ] [
+        cursor [ fuse True , color cursor] [
 
         ]
     ]
