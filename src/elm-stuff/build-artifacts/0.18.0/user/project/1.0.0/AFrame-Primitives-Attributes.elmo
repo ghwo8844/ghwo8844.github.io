@@ -269,3 +269,9 @@ var _user$project$AFrame_Primitives_Attributes$groundColor = function (value) {
 		'ground-color',
 		_user$project$AFrame_Primitives_Attributes$colorToHex(value));
 };
+var _user$project$AFrame_Primitives_Attributes$objModel = function (id) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'obj-model',
+		A2(_elm_lang$core$Basics_ops['++'], 'obj: #', id));
+};

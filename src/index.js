@@ -8598,6 +8598,12 @@ var _user$project$AFrame_Primitives_Attributes$groundColor = function (value) {
 		'ground-color',
 		_user$project$AFrame_Primitives_Attributes$colorToHex(value));
 };
+var _user$project$AFrame_Primitives_Attributes$objModel = function (id) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'obj-model',
+		A2(_elm_lang$core$Basics_ops['++'], 'obj: #', id));
+};
 
 var _user$project$AFrame_Primitives_Camera$wasdControlsEnabled = function (value) {
 	return A2(
@@ -8835,40 +8841,36 @@ var _user$project$Main$view = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _user$project$CameraConfig$cam,
+				_0: A2(
+					_user$project$AFrame$entity,
+					{
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$objModel('table'),
+						_1: {
+							ctor: '::',
+							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 10, 0),
+							_1: {ctor: '[]'}
+						}
+					},
+					{ctor: '[]'}),
 				_1: {
 					ctor: '::',
-					_0: A2(
-						_user$project$AFrame$entity,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: A2(
-								_user$project$AFrame_Primitives$box,
-								{
-									ctor: '::',
-									_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
-									_1: {
-										ctor: '::',
-										_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, 0.1, _user$project$Main$side),
-										_1: {
-											ctor: '::',
-											_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
-											_1: {ctor: '[]'}
-										}
-									}
-								},
-								{ctor: '[]'}),
-							_1: {
+					_0: _user$project$CameraConfig$cam,
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_user$project$AFrame$entity,
+							{ctor: '[]'},
+							{
 								ctor: '::',
 								_0: A2(
 									_user$project$AFrame_Primitives$box,
 									{
 										ctor: '::',
-										_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / 2, _user$project$Main$height / 2, 0),
+										_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
 										_1: {
 											ctor: '::',
-											_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
+											_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, 0.1, _user$project$Main$side),
 											_1: {
 												ctor: '::',
 												_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
@@ -8883,7 +8885,7 @@ var _user$project$Main$view = function (model) {
 										_user$project$AFrame_Primitives$box,
 										{
 											ctor: '::',
-											_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / -2, _user$project$Main$height / 2, 0),
+											_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / 2, _user$project$Main$height / 2, 0),
 											_1: {
 												ctor: '::',
 												_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
@@ -8901,10 +8903,10 @@ var _user$project$Main$view = function (model) {
 											_user$project$AFrame_Primitives$box,
 											{
 												ctor: '::',
-												_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / 2),
+												_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / -2, _user$project$Main$height / 2, 0),
 												_1: {
 													ctor: '::',
-													_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+													_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
 													_1: {
 														ctor: '::',
 														_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
@@ -8919,7 +8921,7 @@ var _user$project$Main$view = function (model) {
 												_user$project$AFrame_Primitives$box,
 												{
 													ctor: '::',
-													_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / -2),
+													_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / 2),
 													_1: {
 														ctor: '::',
 														_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
@@ -8931,16 +8933,35 @@ var _user$project$Main$view = function (model) {
 													}
 												},
 												{ctor: '[]'}),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_user$project$AFrame_Primitives$box,
+													{
+														ctor: '::',
+														_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / -2),
+														_1: {
+															ctor: '::',
+															_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+															_1: {
+																ctor: '::',
+																_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+																_1: {ctor: '[]'}
+															}
+														}
+													},
+													{ctor: '[]'}),
+												_1: {ctor: '[]'}
+											}
 										}
 									}
 								}
-							}
-						}),
-					_1: {
-						ctor: '::',
-						_0: _user$project$CameraConfig$bg,
-						_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _user$project$CameraConfig$bg,
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}

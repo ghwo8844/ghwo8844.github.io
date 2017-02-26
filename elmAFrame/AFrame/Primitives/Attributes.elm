@@ -27,7 +27,7 @@ import Char
 
 objModel : String -> Attribute msg
 objModel id =
-    attribute "obj-model" ("obj: #" + id)
+    attribute "obj-model" ("obj: #" ++ id)
 
 
 
