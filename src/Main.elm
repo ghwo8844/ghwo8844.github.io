@@ -62,7 +62,7 @@ view model =
                 src "../assets/table.obj"
             ] [ ]
         ]
-        , entity [ objModel "table" ] [ ]
+        , entity [ objModel "table", position 0 10 0 ] [ ]
         , cam
         , entity [ ] [ 
                 box [ 
