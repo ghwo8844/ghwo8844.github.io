@@ -8311,6 +8311,121 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
+var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _elm_lang$html$Html_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$bool);
+var _elm_lang$html$Html_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_lang$html$Html_Events$onFocus = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'focus',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onBlur = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'blur',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+	_elm_lang$html$Html_Events$defaultOptions,
+	{preventDefault: true});
+var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+	return A3(
+		_elm_lang$html$Html_Events$onWithOptions,
+		'submit',
+		_elm_lang$html$Html_Events$onSubmitOptions,
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'change',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+};
+var _elm_lang$html$Html_Events$onInput = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'input',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+};
+var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseout',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseover',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseleave',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseenter',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseup',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mousedown',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'dblclick',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'click',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
 var _user$project$AFrame$entity = _elm_lang$html$Html$node('a-entity');
 var _user$project$AFrame$scene = _elm_lang$html$Html$node('a-scene');
 
@@ -8678,6 +8793,49 @@ var _user$project$ColorScheme$background = A3(_elm_lang$core$Color$rgb, 10, 10, 
 var _user$project$ColorScheme$ground = A3(_elm_lang$core$Color$rgb, 70, 70, 70);
 var _user$project$ColorScheme$cursorColor = A3(_elm_lang$core$Color$rgb, 150, 150, 150);
 
+var _user$project$Asset$tables = F4(
+	function (x, z, scaleX, scaleZ) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$chairs = F4(
+	function (x, z, scaleX, scaleZ) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$assetList = {ctor: '[]'};
+var _user$project$Asset$addAsset = function (message) {
+	return {ctor: '::', _0: message, _1: _user$project$Asset$assetList};
+};
+
 var _user$project$Base$getBase = F2(
 	function (side, height) {
 		return A2(
@@ -8823,107 +8981,75 @@ var _user$project$CameraConfig$cam = A2(
 
 var _user$project$Main$height = 3.0;
 var _user$project$Main$side = 30.0;
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'Chair') {
+			return {
+				ctor: '_Tuple2',
+				_0: _user$project$Asset$addAsset(
+					A4(_user$project$Asset$chairs, 0, 0, 0, 0)),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: _user$project$Asset$addAsset(
+					A4(_user$project$Asset$tables, 0, 0, 0, 0)),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		}
+	});
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Main$init = {
+	ctor: '_Tuple2',
+	_0: {ctor: '[]'},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Main$Table = {ctor: 'Table'};
+var _user$project$Main$Chair = {ctor: 'Chair'};
 var _user$project$Main$view = function (model) {
 	return A2(
-		_user$project$AFrame$scene,
-		{ctor: '[]'},
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('container'),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A2(
-				_user$project$AFrame_Primitives$assets,
-				{ctor: '[]'},
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$id('aframe'),
+					_1: {ctor: '[]'}
+				},
 				{
 					ctor: '::',
 					_0: A2(
-						_user$project$AFrame_Primitives$assetItem,
+						_user$project$AFrame$scene,
+						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$id('table-obj'),
+							_0: _user$project$CameraConfig$cam,
 							_1: {
-								ctor: '::',
-								_0: _user$project$AFrame_Primitives_Attributes$src('./assets/RageTable.obj'),
-								_1: {ctor: '[]'}
-							}
-						},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_user$project$AFrame$entity,
-					{
-						ctor: '::',
-						_0: _user$project$AFrame_Primitives_Attributes$objModel('table-obj'),
-						_1: {
-							ctor: '::',
-							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
-							_1: {
-								ctor: '::',
-								_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 5.0e-2, 5.0e-2, 5.0e-2),
-								_1: {
-									ctor: '::',
-									_0: _user$project$AFrame_Primitives_Attributes$material(_user$project$ColorScheme$red),
-									_1: {ctor: '[]'}
-								}
-							}
-						}
-					},
-					{ctor: '[]'}),
-				_1: {
-					ctor: '::',
-					_0: _user$project$CameraConfig$cam,
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_user$project$AFrame$entity,
-							{ctor: '[]'},
-							{
 								ctor: '::',
 								_0: A2(
-									_user$project$AFrame_Primitives$box,
+									_user$project$AFrame$entity,
+									{ctor: '[]'},
 									{
-										ctor: '::',
-										_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
-										_1: {
-											ctor: '::',
-											_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, 0.1, _user$project$Main$side),
-											_1: {
-												ctor: '::',
-												_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
-												_1: {ctor: '[]'}
-											}
-										}
-									},
-									{ctor: '[]'}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_user$project$AFrame_Primitives$box,
-										{
-											ctor: '::',
-											_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / 2, _user$project$Main$height / 2, 0),
-											_1: {
-												ctor: '::',
-												_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
-												_1: {
-													ctor: '::',
-													_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
-													_1: {ctor: '[]'}
-												}
-											}
-										},
-										{ctor: '[]'}),
-									_1: {
 										ctor: '::',
 										_0: A2(
 											_user$project$AFrame_Primitives$box,
 											{
 												ctor: '::',
-												_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / -2, _user$project$Main$height / 2, 0),
+												_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
 												_1: {
 													ctor: '::',
-													_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
+													_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, 0.1, _user$project$Main$side),
 													_1: {
 														ctor: '::',
 														_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
@@ -8938,10 +9064,10 @@ var _user$project$Main$view = function (model) {
 												_user$project$AFrame_Primitives$box,
 												{
 													ctor: '::',
-													_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / 2),
+													_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / 2, _user$project$Main$height / 2, 0),
 													_1: {
 														ctor: '::',
-														_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+														_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
 														_1: {
 															ctor: '::',
 															_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
@@ -8956,10 +9082,10 @@ var _user$project$Main$view = function (model) {
 													_user$project$AFrame_Primitives$box,
 													{
 														ctor: '::',
-														_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / -2),
+														_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / -2, _user$project$Main$height / 2, 0),
 														_1: {
 															ctor: '::',
-															_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+															_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
 															_1: {
 																ctor: '::',
 																_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
@@ -8968,58 +9094,110 @@ var _user$project$Main$view = function (model) {
 														}
 													},
 													{ctor: '[]'}),
-												_1: {ctor: '[]'}
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_user$project$AFrame_Primitives$box,
+														{
+															ctor: '::',
+															_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / 2),
+															_1: {
+																ctor: '::',
+																_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+																_1: {
+																	ctor: '::',
+																	_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+																	_1: {ctor: '[]'}
+																}
+															}
+														},
+														{ctor: '[]'}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_user$project$AFrame_Primitives$box,
+															{
+																ctor: '::',
+																_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / -2),
+																_1: {
+																	ctor: '::',
+																	_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+																	_1: {
+																		ctor: '::',
+																		_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+																		_1: {ctor: '[]'}
+																	}
+																}
+															},
+															{ctor: '[]'}),
+														_1: {ctor: '[]'}
+													}
+												}
 											}
 										}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _user$project$CameraConfig$bg,
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_user$project$AFrame$entity,
+											{ctor: '[]'},
+											_user$project$Asset$assetList),
+										_1: {ctor: '[]'}
 									}
 								}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$id('layout'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Chair),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Chair'),
+								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
-							_0: _user$project$CameraConfig$bg,
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Table),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Table'),
+									_1: {ctor: '[]'}
+								}),
 							_1: {ctor: '[]'}
 						}
-					}
-				}
+					}),
+				_1: {ctor: '[]'}
 			}
 		});
 };
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		var _p1 = _p0._0;
-		return ((_elm_lang$core$Native_Utils.cmp(
-			_elm_lang$core$String$length(model.active),
-			0) > 0) && _elm_lang$core$Native_Utils.eq(_p1, model.active)) ? {
-			ctor: '_Tuple2',
-			_0: _elm_lang$core$Native_Utils.update(
-				model,
-				{active: ''}),
-			_1: _elm_lang$core$Platform_Cmd$none
-		} : {
-			ctor: '_Tuple2',
-			_0: _elm_lang$core$Native_Utils.update(
-				model,
-				{active: _p1}),
-			_1: _elm_lang$core$Platform_Cmd$none
-		};
-	});
-var _user$project$Main$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$none;
-};
-var _user$project$Main$Model = function (a) {
-	return {active: a};
-};
-var _user$project$Main$init = {
-	ctor: '_Tuple2',
-	_0: _user$project$Main$Model(''),
-	_1: _elm_lang$core$Platform_Cmd$none
-};
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{init: _user$project$Main$init, view: _user$project$Main$view, subscriptions: _user$project$Main$subscriptions, update: _user$project$Main$update})();
-var _user$project$Main$Click = function (a) {
-	return {ctor: 'Click', _0: a};
-};
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

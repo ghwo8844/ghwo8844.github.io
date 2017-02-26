@@ -1,0 +1,42 @@
+var _user$project$Asset$tables = F4(
+	function (x, z, scaleX, scaleZ) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$chairs = F4(
+	function (x, z, scaleX, scaleZ) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$assetList = {ctor: '[]'};
+var _user$project$Asset$addAsset = function (message) {
+	return {ctor: '::', _0: message, _1: _user$project$Asset$assetList};
+};
