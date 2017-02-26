@@ -1,2 +1,0 @@
-var _user$project$AFrame$entity = _elm_lang$html$Html$node('a-entity');
-var _user$project$AFrame$scene = _elm_lang$html$Html$node('a-scene');

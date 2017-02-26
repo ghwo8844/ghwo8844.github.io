@@ -5896,126 +5896,6 @@ var _elm_lang$core$Json_Decode$bool = _elm_lang$core$Native_Json.decodePrimitive
 var _elm_lang$core$Json_Decode$string = _elm_lang$core$Native_Json.decodePrimitive('string');
 var _elm_lang$core$Json_Decode$Decoder = {ctor: 'Decoder'};
 
-//import Maybe, Native.List //
-
-var _elm_lang$core$Native_Regex = function() {
-
-function escape(str)
-{
-	return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-}
-function caseInsensitive(re)
-{
-	return new RegExp(re.source, 'gi');
-}
-function regex(raw)
-{
-	return new RegExp(raw, 'g');
-}
-
-function contains(re, string)
-{
-	return string.match(re) !== null;
-}
-
-function find(n, re, str)
-{
-	n = n.ctor === 'All' ? Infinity : n._0;
-	var out = [];
-	var number = 0;
-	var string = str;
-	var lastIndex = re.lastIndex;
-	var prevLastIndex = -1;
-	var result;
-	while (number++ < n && (result = re.exec(string)))
-	{
-		if (prevLastIndex === re.lastIndex) break;
-		var i = result.length - 1;
-		var subs = new Array(i);
-		while (i > 0)
-		{
-			var submatch = result[i];
-			subs[--i] = submatch === undefined
-				? _elm_lang$core$Maybe$Nothing
-				: _elm_lang$core$Maybe$Just(submatch);
-		}
-		out.push({
-			match: result[0],
-			submatches: _elm_lang$core$Native_List.fromArray(subs),
-			index: result.index,
-			number: number
-		});
-		prevLastIndex = re.lastIndex;
-	}
-	re.lastIndex = lastIndex;
-	return _elm_lang$core$Native_List.fromArray(out);
-}
-
-function replace(n, re, replacer, string)
-{
-	n = n.ctor === 'All' ? Infinity : n._0;
-	var count = 0;
-	function jsReplacer(match)
-	{
-		if (count++ >= n)
-		{
-			return match;
-		}
-		var i = arguments.length - 3;
-		var submatches = new Array(i);
-		while (i > 0)
-		{
-			var submatch = arguments[i];
-			submatches[--i] = submatch === undefined
-				? _elm_lang$core$Maybe$Nothing
-				: _elm_lang$core$Maybe$Just(submatch);
-		}
-		return replacer({
-			match: match,
-			submatches: _elm_lang$core$Native_List.fromArray(submatches),
-			index: arguments[arguments.length - 2],
-			number: count
-		});
-	}
-	return string.replace(re, jsReplacer);
-}
-
-function split(n, re, str)
-{
-	n = n.ctor === 'All' ? Infinity : n._0;
-	if (n === Infinity)
-	{
-		return _elm_lang$core$Native_List.fromArray(str.split(re));
-	}
-	var string = str;
-	var result;
-	var out = [];
-	var start = re.lastIndex;
-	var restoreLastIndex = re.lastIndex;
-	while (n--)
-	{
-		if (!(result = re.exec(string))) break;
-		out.push(string.slice(start, result.index));
-		start = re.lastIndex;
-	}
-	out.push(string.slice(start));
-	re.lastIndex = restoreLastIndex;
-	return _elm_lang$core$Native_List.fromArray(out);
-}
-
-return {
-	regex: regex,
-	caseInsensitive: caseInsensitive,
-	escape: escape,
-
-	contains: F2(contains),
-	find: F3(find),
-	replace: F4(replace),
-	split: F3(split)
-};
-
-}();
-
 var _elm_lang$core$Tuple$mapSecond = F2(
 	function (func, _p0) {
 		var _p1 = _p0;
@@ -6042,23 +5922,6 @@ var _elm_lang$core$Tuple$first = function (_p6) {
 	var _p7 = _p6;
 	return _p7._0;
 };
-
-var _elm_lang$core$Regex$split = _elm_lang$core$Native_Regex.split;
-var _elm_lang$core$Regex$replace = _elm_lang$core$Native_Regex.replace;
-var _elm_lang$core$Regex$find = _elm_lang$core$Native_Regex.find;
-var _elm_lang$core$Regex$contains = _elm_lang$core$Native_Regex.contains;
-var _elm_lang$core$Regex$caseInsensitive = _elm_lang$core$Native_Regex.caseInsensitive;
-var _elm_lang$core$Regex$regex = _elm_lang$core$Native_Regex.regex;
-var _elm_lang$core$Regex$escape = _elm_lang$core$Native_Regex.escape;
-var _elm_lang$core$Regex$Match = F4(
-	function (a, b, c, d) {
-		return {match: a, submatches: b, index: c, number: d};
-	});
-var _elm_lang$core$Regex$Regex = {ctor: 'Regex'};
-var _elm_lang$core$Regex$AtMost = function (a) {
-	return {ctor: 'AtMost', _0: a};
-};
-var _elm_lang$core$Regex$All = {ctor: 'All'};
 
 var _elm_lang$virtual_dom$VirtualDom_Debug$wrap;
 var _elm_lang$virtual_dom$VirtualDom_Debug$wrapWithFlags;
@@ -8448,395 +8311,6 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _fredcy$elm_parseint$ParseInt$charFromInt = function (i) {
-	return (_elm_lang$core$Native_Utils.cmp(i, 10) < 0) ? _elm_lang$core$Char$fromCode(
-		i + _elm_lang$core$Char$toCode(
-			_elm_lang$core$Native_Utils.chr('0'))) : ((_elm_lang$core$Native_Utils.cmp(i, 36) < 0) ? _elm_lang$core$Char$fromCode(
-		(i - 10) + _elm_lang$core$Char$toCode(
-			_elm_lang$core$Native_Utils.chr('A'))) : _elm_lang$core$Native_Utils.crash(
-		'ParseInt',
-		{
-			start: {line: 158, column: 9},
-			end: {line: 158, column: 20}
-		})(
-		_elm_lang$core$Basics$toString(i)));
-};
-var _fredcy$elm_parseint$ParseInt$toRadixUnsafe = F2(
-	function (radix, i) {
-		return (_elm_lang$core$Native_Utils.cmp(i, radix) < 0) ? _elm_lang$core$String$fromChar(
-			_fredcy$elm_parseint$ParseInt$charFromInt(i)) : A2(
-			_elm_lang$core$Basics_ops['++'],
-			A2(_fredcy$elm_parseint$ParseInt$toRadixUnsafe, radix, (i / radix) | 0),
-			_elm_lang$core$String$fromChar(
-				_fredcy$elm_parseint$ParseInt$charFromInt(
-					A2(_elm_lang$core$Basics_ops['%'], i, radix))));
-	});
-var _fredcy$elm_parseint$ParseInt$toOct = _fredcy$elm_parseint$ParseInt$toRadixUnsafe(8);
-var _fredcy$elm_parseint$ParseInt$toHex = _fredcy$elm_parseint$ParseInt$toRadixUnsafe(16);
-var _fredcy$elm_parseint$ParseInt$isBetween = F3(
-	function (lower, upper, c) {
-		var ci = _elm_lang$core$Char$toCode(c);
-		return (_elm_lang$core$Native_Utils.cmp(
-			_elm_lang$core$Char$toCode(lower),
-			ci) < 1) && (_elm_lang$core$Native_Utils.cmp(
-			ci,
-			_elm_lang$core$Char$toCode(upper)) < 1);
-	});
-var _fredcy$elm_parseint$ParseInt$charOffset = F2(
-	function (basis, c) {
-		return _elm_lang$core$Char$toCode(c) - _elm_lang$core$Char$toCode(basis);
-	});
-var _fredcy$elm_parseint$ParseInt$InvalidRadix = function (a) {
-	return {ctor: 'InvalidRadix', _0: a};
-};
-var _fredcy$elm_parseint$ParseInt$toRadix = F2(
-	function (radix, i) {
-		return ((_elm_lang$core$Native_Utils.cmp(2, radix) < 1) && (_elm_lang$core$Native_Utils.cmp(radix, 36) < 1)) ? ((_elm_lang$core$Native_Utils.cmp(i, 0) < 0) ? _elm_lang$core$Result$Ok(
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'-',
-				A2(_fredcy$elm_parseint$ParseInt$toRadixUnsafe, radix, 0 - i))) : _elm_lang$core$Result$Ok(
-			A2(_fredcy$elm_parseint$ParseInt$toRadixUnsafe, radix, i))) : _elm_lang$core$Result$Err(
-			_fredcy$elm_parseint$ParseInt$InvalidRadix(radix));
-	});
-var _fredcy$elm_parseint$ParseInt$OutOfRange = function (a) {
-	return {ctor: 'OutOfRange', _0: a};
-};
-var _fredcy$elm_parseint$ParseInt$InvalidChar = function (a) {
-	return {ctor: 'InvalidChar', _0: a};
-};
-var _fredcy$elm_parseint$ParseInt$intFromChar = F2(
-	function (radix, c) {
-		var validInt = function (i) {
-			return (_elm_lang$core$Native_Utils.cmp(i, radix) < 0) ? _elm_lang$core$Result$Ok(i) : _elm_lang$core$Result$Err(
-				_fredcy$elm_parseint$ParseInt$OutOfRange(c));
-		};
-		var toInt = A3(
-			_fredcy$elm_parseint$ParseInt$isBetween,
-			_elm_lang$core$Native_Utils.chr('0'),
-			_elm_lang$core$Native_Utils.chr('9'),
-			c) ? _elm_lang$core$Result$Ok(
-			A2(
-				_fredcy$elm_parseint$ParseInt$charOffset,
-				_elm_lang$core$Native_Utils.chr('0'),
-				c)) : (A3(
-			_fredcy$elm_parseint$ParseInt$isBetween,
-			_elm_lang$core$Native_Utils.chr('a'),
-			_elm_lang$core$Native_Utils.chr('z'),
-			c) ? _elm_lang$core$Result$Ok(
-			10 + A2(
-				_fredcy$elm_parseint$ParseInt$charOffset,
-				_elm_lang$core$Native_Utils.chr('a'),
-				c)) : (A3(
-			_fredcy$elm_parseint$ParseInt$isBetween,
-			_elm_lang$core$Native_Utils.chr('A'),
-			_elm_lang$core$Native_Utils.chr('Z'),
-			c) ? _elm_lang$core$Result$Ok(
-			10 + A2(
-				_fredcy$elm_parseint$ParseInt$charOffset,
-				_elm_lang$core$Native_Utils.chr('A'),
-				c)) : _elm_lang$core$Result$Err(
-			_fredcy$elm_parseint$ParseInt$InvalidChar(c))));
-		return A2(_elm_lang$core$Result$andThen, validInt, toInt);
-	});
-var _fredcy$elm_parseint$ParseInt$parseIntR = F2(
-	function (radix, rstring) {
-		var _p0 = _elm_lang$core$String$uncons(rstring);
-		if (_p0.ctor === 'Nothing') {
-			return _elm_lang$core$Result$Ok(0);
-		} else {
-			return A2(
-				_elm_lang$core$Result$andThen,
-				function (ci) {
-					return A2(
-						_elm_lang$core$Result$andThen,
-						function (ri) {
-							return _elm_lang$core$Result$Ok(ci + (ri * radix));
-						},
-						A2(_fredcy$elm_parseint$ParseInt$parseIntR, radix, _p0._0._1));
-				},
-				A2(_fredcy$elm_parseint$ParseInt$intFromChar, radix, _p0._0._0));
-		}
-	});
-var _fredcy$elm_parseint$ParseInt$parseIntRadix = F2(
-	function (radix, string) {
-		return ((_elm_lang$core$Native_Utils.cmp(2, radix) < 1) && (_elm_lang$core$Native_Utils.cmp(radix, 36) < 1)) ? A2(
-			_fredcy$elm_parseint$ParseInt$parseIntR,
-			radix,
-			_elm_lang$core$String$reverse(string)) : _elm_lang$core$Result$Err(
-			_fredcy$elm_parseint$ParseInt$InvalidRadix(radix));
-	});
-var _fredcy$elm_parseint$ParseInt$parseInt = _fredcy$elm_parseint$ParseInt$parseIntRadix(10);
-var _fredcy$elm_parseint$ParseInt$parseIntOct = _fredcy$elm_parseint$ParseInt$parseIntRadix(8);
-var _fredcy$elm_parseint$ParseInt$parseIntHex = _fredcy$elm_parseint$ParseInt$parseIntRadix(16);
-
-var _eskimoblood$elm_color_extra$Color_Convert$xyzToColor = function (_p0) {
-	var _p1 = _p0;
-	var c = function (ch) {
-		var ch_ = (_elm_lang$core$Native_Utils.cmp(ch, 3.1308e-3) > 0) ? ((1.055 * Math.pow(ch, 1 / 2.4)) - 5.5e-2) : (12.92 * ch);
-		return _elm_lang$core$Basics$round(
-			A3(_elm_lang$core$Basics$clamp, 0, 255, ch_ * 255));
-	};
-	var z_ = _p1.z / 100;
-	var y_ = _p1.y / 100;
-	var x_ = _p1.x / 100;
-	var r = ((x_ * 3.2404542) + (y_ * -1.5371385)) + (z_ * -0.4986);
-	var g = ((x_ * -0.969266) + (y_ * 1.8760108)) + (z_ * 4.1556e-2);
-	var b = ((x_ * 5.56434e-2) + (y_ * -0.2040259)) + (z_ * 1.0572252);
-	return A3(
-		_elm_lang$core$Color$rgb,
-		c(r),
-		c(g),
-		c(b));
-};
-var _eskimoblood$elm_color_extra$Color_Convert$labToXyz = function (_p2) {
-	var _p3 = _p2;
-	var y = (_p3.l + 16) / 116;
-	var c = function (ch) {
-		var ch_ = (ch * ch) * ch;
-		return (_elm_lang$core$Native_Utils.cmp(ch_, 8.856e-3) > 0) ? ch_ : ((ch - (16 / 116)) / 7.787);
-	};
-	return {
-		y: c(y) * 100,
-		x: c(y + (_p3.a / 500)) * 95.047,
-		z: c(y - (_p3.b / 200)) * 108.883
-	};
-};
-var _eskimoblood$elm_color_extra$Color_Convert$labToColor = function (lab) {
-	return _eskimoblood$elm_color_extra$Color_Convert$xyzToColor(
-		_eskimoblood$elm_color_extra$Color_Convert$labToXyz(lab));
-};
-var _eskimoblood$elm_color_extra$Color_Convert$xyzToLab = function (_p4) {
-	var _p5 = _p4;
-	var c = function (ch) {
-		return (_elm_lang$core$Native_Utils.cmp(ch, 8.856e-3) > 0) ? Math.pow(ch, 1 / 3) : ((7.787 * ch) + (16 / 116));
-	};
-	var x_ = c(_p5.x / 95.047);
-	var y_ = c(_p5.y / 100);
-	var z_ = c(_p5.z / 108.883);
-	return {l: (116 * y_) - 16, a: 500 * (x_ - y_), b: 200 * (y_ - z_)};
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToXyz = function (cl) {
-	var _p6 = _elm_lang$core$Color$toRgb(cl);
-	var red = _p6.red;
-	var green = _p6.green;
-	var blue = _p6.blue;
-	var c = function (ch) {
-		var ch_ = _elm_lang$core$Basics$toFloat(ch) / 255;
-		var ch__ = (_elm_lang$core$Native_Utils.cmp(ch_, 4.045e-2) > 0) ? Math.pow((ch_ + 5.5e-2) / 1.055, 2.4) : (ch_ / 12.92);
-		return ch__ * 100;
-	};
-	var r = c(red);
-	var g = c(green);
-	var b = c(blue);
-	return {x: ((r * 0.4124) + (g * 0.3576)) + (b * 0.1805), y: ((r * 0.2126) + (g * 0.7152)) + (b * 7.22e-2), z: ((r * 1.93e-2) + (g * 0.1192)) + (b * 0.9505)};
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToLab = function (cl) {
-	return _eskimoblood$elm_color_extra$Color_Convert$xyzToLab(
-		_eskimoblood$elm_color_extra$Color_Convert$colorToXyz(cl));
-};
-var _eskimoblood$elm_color_extra$Color_Convert$toRadix = function (n) {
-	var getChr = function (c) {
-		return (_elm_lang$core$Native_Utils.cmp(c, 10) < 0) ? _elm_lang$core$Basics$toString(c) : _elm_lang$core$String$fromChar(
-			_elm_lang$core$Char$fromCode(87 + c));
-	};
-	return (_elm_lang$core$Native_Utils.cmp(n, 16) < 0) ? getChr(n) : A2(
-		_elm_lang$core$Basics_ops['++'],
-		_eskimoblood$elm_color_extra$Color_Convert$toRadix((n / 16) | 0),
-		getChr(
-			A2(_elm_lang$core$Basics_ops['%'], n, 16)));
-};
-var _eskimoblood$elm_color_extra$Color_Convert$toHex = function (n) {
-	var hex = _eskimoblood$elm_color_extra$Color_Convert$toRadix(n);
-	return _elm_lang$core$Native_Utils.eq(
-		_elm_lang$core$String$length(hex),
-		1) ? A2(_elm_lang$core$Basics_ops['++'], '0', hex) : hex;
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToHex = function (cl) {
-	var _p7 = _elm_lang$core$Color$toRgb(cl);
-	var red = _p7.red;
-	var green = _p7.green;
-	var blue = _p7.blue;
-	var alpha = _p7.alpha;
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		'#',
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			_eskimoblood$elm_color_extra$Color_Convert$toHex(red),
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				_eskimoblood$elm_color_extra$Color_Convert$toHex(green),
-				_eskimoblood$elm_color_extra$Color_Convert$toHex(blue))));
-};
-var _eskimoblood$elm_color_extra$Color_Convert$hexToColor = function (c) {
-	var r = _elm_lang$core$List$head(
-		A2(
-			_elm_lang$core$List$map,
-			function (_) {
-				return _.submatches;
-			},
-			A3(
-				_elm_lang$core$Regex$find,
-				_elm_lang$core$Regex$All,
-				_elm_lang$core$Regex$regex('^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$'),
-				_elm_lang$core$String$toLower(c))));
-	var _p8 = r;
-	if (_p8.ctor === 'Just') {
-		var v = A2(
-			_elm_lang$core$List$filterMap,
-			_elm_lang$core$Basics$identity,
-			A2(
-				_elm_lang$core$List$map,
-				_elm_lang$core$Result$toMaybe,
-				A2(
-					_elm_lang$core$List$map,
-					_fredcy$elm_parseint$ParseInt$parseIntHex,
-					A2(_elm_lang$core$List$filterMap, _elm_lang$core$Basics$identity, _p8._0))));
-		var _p9 = v;
-		if ((((_p9.ctor === '::') && (_p9._1.ctor === '::')) && (_p9._1._1.ctor === '::')) && (_p9._1._1._1.ctor === '[]')) {
-			return _elm_lang$core$Maybe$Just(
-				A3(_elm_lang$core$Color$rgb, _p9._0, _p9._1._0, _p9._1._1._0));
-		} else {
-			return _elm_lang$core$Maybe$Nothing;
-		}
-	} else {
-		return _elm_lang$core$Maybe$Nothing;
-	}
-};
-var _eskimoblood$elm_color_extra$Color_Convert$cssColorString = F2(
-	function (kind, values) {
-		return A2(
-			_elm_lang$core$Basics_ops['++'],
-			kind,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'(',
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					A2(_elm_lang$core$String$join, ', ', values),
-					')')));
-	});
-var _eskimoblood$elm_color_extra$Color_Convert$toPercentString = function (h) {
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		_elm_lang$core$Basics$toString(
-			_elm_lang$core$Basics$round(h * 100)),
-		'%');
-};
-var _eskimoblood$elm_color_extra$Color_Convert$hueToString = function (h) {
-	return _elm_lang$core$Basics$toString(
-		_elm_lang$core$Basics$round((h * 180) / _elm_lang$core$Basics$pi));
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToCssHsla = function (cl) {
-	var _p10 = _elm_lang$core$Color$toHsl(cl);
-	var hue = _p10.hue;
-	var saturation = _p10.saturation;
-	var lightness = _p10.lightness;
-	var alpha = _p10.alpha;
-	return A2(
-		_eskimoblood$elm_color_extra$Color_Convert$cssColorString,
-		'hsla',
-		{
-			ctor: '::',
-			_0: _eskimoblood$elm_color_extra$Color_Convert$hueToString(hue),
-			_1: {
-				ctor: '::',
-				_0: _eskimoblood$elm_color_extra$Color_Convert$toPercentString(saturation),
-				_1: {
-					ctor: '::',
-					_0: _eskimoblood$elm_color_extra$Color_Convert$toPercentString(lightness),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$core$Basics$toString(alpha),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		});
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToCssHsl = function (cl) {
-	var _p11 = _elm_lang$core$Color$toHsl(cl);
-	var hue = _p11.hue;
-	var saturation = _p11.saturation;
-	var lightness = _p11.lightness;
-	var alpha = _p11.alpha;
-	return A2(
-		_eskimoblood$elm_color_extra$Color_Convert$cssColorString,
-		'hsl',
-		{
-			ctor: '::',
-			_0: _eskimoblood$elm_color_extra$Color_Convert$hueToString(hue),
-			_1: {
-				ctor: '::',
-				_0: _eskimoblood$elm_color_extra$Color_Convert$toPercentString(saturation),
-				_1: {
-					ctor: '::',
-					_0: _eskimoblood$elm_color_extra$Color_Convert$toPercentString(lightness),
-					_1: {ctor: '[]'}
-				}
-			}
-		});
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToCssRgba = function (cl) {
-	var _p12 = _elm_lang$core$Color$toRgb(cl);
-	var red = _p12.red;
-	var green = _p12.green;
-	var blue = _p12.blue;
-	var alpha = _p12.alpha;
-	return A2(
-		_eskimoblood$elm_color_extra$Color_Convert$cssColorString,
-		'rgba',
-		{
-			ctor: '::',
-			_0: _elm_lang$core$Basics$toString(red),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$core$Basics$toString(green),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$core$Basics$toString(blue),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$core$Basics$toString(alpha),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		});
-};
-var _eskimoblood$elm_color_extra$Color_Convert$colorToCssRgb = function (cl) {
-	var _p13 = _elm_lang$core$Color$toRgb(cl);
-	var red = _p13.red;
-	var green = _p13.green;
-	var blue = _p13.blue;
-	var alpha = _p13.alpha;
-	return A2(
-		_eskimoblood$elm_color_extra$Color_Convert$cssColorString,
-		'rgb',
-		{
-			ctor: '::',
-			_0: _elm_lang$core$Basics$toString(red),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$core$Basics$toString(green),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$core$Basics$toString(blue),
-					_1: {ctor: '[]'}
-				}
-			}
-		});
-};
-var _eskimoblood$elm_color_extra$Color_Convert$XYZ = F3(
-	function (a, b, c) {
-		return {x: a, y: b, z: c};
-	});
-var _eskimoblood$elm_color_extra$Color_Convert$Lab = F3(
-	function (a, b, c) {
-		return {l: a, a: b, b: c};
-	});
-
 var _user$project$AFrame$entity = _elm_lang$html$Html$node('a-entity');
 var _user$project$AFrame$scene = _elm_lang$html$Html$node('a-scene');
 
@@ -8876,12 +8350,6 @@ var _user$project$AFrame_Primitives_Attributes$intensity = function (value) {
 		_elm_lang$html$Html_Attributes$attribute,
 		'intensity',
 		_elm_lang$core$Basics$toString(value));
-};
-var _user$project$AFrame_Primitives_Attributes$groundColor = function (value) {
-	return A2(
-		_elm_lang$html$Html_Attributes$attribute,
-		'ground-color',
-		_eskimoblood$elm_color_extra$Color_Convert$colorToHex(value));
 };
 var _user$project$AFrame_Primitives_Attributes$exponent = function (value) {
 	return A2(
@@ -9084,63 +8552,136 @@ var _user$project$AFrame_Primitives_Attributes$metalness = function (value) {
 		'metalness',
 		_elm_lang$core$Basics$toString(value));
 };
+var _user$project$AFrame_Primitives_Attributes$toRadix = function (n) {
+	var getChr = function (c) {
+		return (_elm_lang$core$Native_Utils.cmp(c, 10) < 0) ? _elm_lang$core$Basics$toString(c) : _elm_lang$core$String$fromChar(
+			_elm_lang$core$Char$fromCode(87 + c));
+	};
+	return (_elm_lang$core$Native_Utils.cmp(n, 16) < 0) ? getChr(n) : A2(
+		_elm_lang$core$Basics_ops['++'],
+		_user$project$AFrame_Primitives_Attributes$toRadix((n / 16) | 0),
+		getChr(
+			A2(_elm_lang$core$Basics_ops['%'], n, 16)));
+};
+var _user$project$AFrame_Primitives_Attributes$toHex = function (n) {
+	var hex = _user$project$AFrame_Primitives_Attributes$toRadix(n);
+	return _elm_lang$core$Native_Utils.eq(
+		_elm_lang$core$String$length(hex),
+		1) ? A2(_elm_lang$core$Basics_ops['++'], '0', hex) : hex;
+};
+var _user$project$AFrame_Primitives_Attributes$colorToHex = function (cl) {
+	var _p1 = _elm_lang$core$Color$toRgb(cl);
+	var red = _p1.red;
+	var green = _p1.green;
+	var blue = _p1.blue;
+	var alpha = _p1.alpha;
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'#',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_user$project$AFrame_Primitives_Attributes$toHex(red),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_user$project$AFrame_Primitives_Attributes$toHex(green),
+				_user$project$AFrame_Primitives_Attributes$toHex(blue))));
+};
 var _user$project$AFrame_Primitives_Attributes$color = function (value) {
 	return A2(
 		_elm_lang$html$Html_Attributes$attribute,
 		'color',
-		_eskimoblood$elm_color_extra$Color_Convert$colorToHex(value));
+		_user$project$AFrame_Primitives_Attributes$colorToHex(value));
+};
+var _user$project$AFrame_Primitives_Attributes$groundColor = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'ground-color',
+		_user$project$AFrame_Primitives_Attributes$colorToHex(value));
 };
 
-var _user$project$Main$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
-	A2(
-		_user$project$AFrame$scene,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_user$project$AFrame_Primitives$sphere,
-				{
-					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.25, -1),
-					_1: {
-						ctor: '::',
-						_0: _user$project$AFrame_Primitives_Attributes$radius(1.25),
-						_1: {
-							ctor: '::',
-							_0: _user$project$AFrame_Primitives_Attributes$color(
-								A3(_elm_lang$core$Color$rgb, 240, 173, 0)),
-							_1: {ctor: '[]'}
-						}
-					}
-				},
-				{ctor: '[]'}),
-			_1: {
+var _user$project$AFrame_Primitives_Camera$wasdControlsEnabled = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'wasd-controls-enabled',
+		_elm_lang$core$String$toLower(
+			_elm_lang$core$Basics$toString(value)));
+};
+var _user$project$AFrame_Primitives_Camera$near = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'near',
+		_elm_lang$core$Basics$toString(value));
+};
+var _user$project$AFrame_Primitives_Camera$lookControlsEnabled = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'look-controls-enabled',
+		_elm_lang$core$String$toLower(
+			_elm_lang$core$Basics$toString(value)));
+};
+var _user$project$AFrame_Primitives_Camera$fov = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'fov',
+		_elm_lang$core$Basics$toString(value));
+};
+var _user$project$AFrame_Primitives_Camera$far = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'far',
+		_elm_lang$core$Basics$toString(value));
+};
+var _user$project$AFrame_Primitives_Camera$camera = _elm_lang$html$Html$node('a-camera');
+
+var _user$project$AFrame_Primitives_Cursor$timeout = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'timeout',
+		_elm_lang$core$Basics$toString(value));
+};
+var _user$project$AFrame_Primitives_Cursor$maxDistance = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'max-distance',
+		_elm_lang$core$Basics$toString(value));
+};
+var _user$project$AFrame_Primitives_Cursor$fuse = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'fuse',
+		_elm_lang$core$String$toLower(
+			_elm_lang$core$Basics$toString(value)));
+};
+var _user$project$AFrame_Primitives_Cursor$cursor = _elm_lang$html$Html$node('a-cursor');
+
+var _user$project$ColorScheme$red = A3(_elm_lang$core$Color$rgb, 255, 0, 0);
+var _user$project$ColorScheme$blue = A3(_elm_lang$core$Color$rgb, 6, 181, 204);
+var _user$project$ColorScheme$green = A3(_elm_lang$core$Color$rgb, 127, 209, 59);
+var _user$project$ColorScheme$grey = A3(_elm_lang$core$Color$rgb, 90, 99, 120);
+var _user$project$ColorScheme$orange = A3(_elm_lang$core$Color$rgb, 200, 173, 0);
+var _user$project$ColorScheme$background = A3(_elm_lang$core$Color$rgb, 10, 10, 10);
+var _user$project$ColorScheme$ground = A3(_elm_lang$core$Color$rgb, 70, 70, 70);
+var _user$project$ColorScheme$cursor = A3(_elm_lang$core$Color$rgb, 150, 150, 150);
+
+var _user$project$Base$getBase = F2(
+	function (side, height) {
+		return A2(
+			_user$project$AFrame$entity,
+			{ctor: '[]'},
+			{
 				ctor: '::',
 				_0: A2(
 					_user$project$AFrame_Primitives$box,
 					{
 						ctor: '::',
-						_0: A3(_user$project$AFrame_Primitives_Attributes$position, -1, 0.5, 1),
+						_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
 						_1: {
 							ctor: '::',
-							_0: _user$project$AFrame_Primitives_Attributes$radius(0.5),
+							_0: A3(_user$project$AFrame_Primitives_Attributes$scale, side, 0.1, side),
 							_1: {
 								ctor: '::',
-								_0: _user$project$AFrame_Primitives_Attributes$width(1),
-								_1: {
-									ctor: '::',
-									_0: _user$project$AFrame_Primitives_Attributes$height(1.5),
-									_1: {
-										ctor: '::',
-										_0: _user$project$AFrame_Primitives_Attributes$depth(1),
-										_1: {
-											ctor: '::',
-											_0: _user$project$AFrame_Primitives_Attributes$color(
-												A3(_elm_lang$core$Color$rgb, 127, 209, 59)),
-											_1: {ctor: '[]'}
-										}
-									}
-								}
+								_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+								_1: {ctor: '[]'}
 							}
 						}
 					},
@@ -9148,22 +8689,17 @@ var _user$project$Main$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProg
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_user$project$AFrame_Primitives$cylinder,
+						_user$project$AFrame_Primitives$box,
 						{
 							ctor: '::',
-							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 1, 0.75, 1),
+							_0: A3(_user$project$AFrame_Primitives_Attributes$position, side / 2, height / 2, 0),
 							_1: {
 								ctor: '::',
-								_0: _user$project$AFrame_Primitives_Attributes$radius(0.5),
+								_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, height, side),
 								_1: {
 									ctor: '::',
-									_0: _user$project$AFrame_Primitives_Attributes$height(1.5),
-									_1: {
-										ctor: '::',
-										_0: _user$project$AFrame_Primitives_Attributes$color(
-											A3(_elm_lang$core$Color$rgb, 6, 181, 204)),
-										_1: {ctor: '[]'}
-									}
+									_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+									_1: {ctor: '[]'}
 								}
 							}
 						},
@@ -9171,22 +8707,17 @@ var _user$project$Main$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProg
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_user$project$AFrame_Primitives$plane,
+							_user$project$AFrame_Primitives$box,
 							{
 								ctor: '::',
-								_0: A3(_user$project$AFrame_Primitives_Attributes$rotation, -90, 0, 0),
+								_0: A3(_user$project$AFrame_Primitives_Attributes$position, side / -2, height / 2, 0),
 								_1: {
 									ctor: '::',
-									_0: _user$project$AFrame_Primitives_Attributes$width(4),
+									_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, height, side),
 									_1: {
 										ctor: '::',
-										_0: _user$project$AFrame_Primitives_Attributes$height(4),
-										_1: {
-											ctor: '::',
-											_0: _user$project$AFrame_Primitives_Attributes$color(
-												A3(_elm_lang$core$Color$rgb, 90, 99, 120)),
-											_1: {ctor: '[]'}
-										}
+										_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+										_1: {ctor: '[]'}
 									}
 								}
 							},
@@ -9194,15 +8725,263 @@ var _user$project$Main$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProg
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_user$project$AFrame_Primitives$sky,
-								{ctor: '[]'},
+								_user$project$AFrame_Primitives$box,
+								{
+									ctor: '::',
+									_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, height / 2, side / 2),
+									_1: {
+										ctor: '::',
+										_0: A3(_user$project$AFrame_Primitives_Attributes$scale, side, height, 0.1),
+										_1: {
+											ctor: '::',
+											_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
 								{ctor: '[]'}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_user$project$AFrame_Primitives$box,
+									{
+										ctor: '::',
+										_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, height / 2, side / -2),
+										_1: {
+											ctor: '::',
+											_0: A3(_user$project$AFrame_Primitives_Attributes$scale, side, height, 0.1),
+											_1: {
+												ctor: '::',
+												_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}
+			});
+	});
+
+var _user$project$CameraConfig$bg = A2(
+	_user$project$AFrame_Primitives$sky,
+	{
+		ctor: '::',
+		_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$background),
+		_1: {
+			ctor: '::',
+			_0: _user$project$AFrame_Primitives_Attributes$radius(500),
+			_1: {ctor: '[]'}
+		}
+	},
+	{ctor: '[]'});
+var _user$project$CameraConfig$cam = A2(
+	_user$project$AFrame_Primitives_Camera$camera,
+	{
+		ctor: '::',
+		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 0),
+		_1: {
+			ctor: '::',
+			_0: _user$project$AFrame_Primitives_Camera$far(1000),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_user$project$AFrame_Primitives_Cursor$cursor,
+			{
+				ctor: '::',
+				_0: _user$project$AFrame_Primitives_Cursor$fuse(true),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 5),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
+
+var _user$project$Main$height = 3.0;
+var _user$project$Main$side = 30.0;
+var _user$project$Main$view = function (model) {
+	return A2(
+		_user$project$AFrame$scene,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_user$project$AFrame_Primitives$assets,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_user$project$AFrame_Primitives$assetItem,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id('table'),
+							_1: {
+								ctor: '::',
+								_0: _user$project$AFrame_Primitives_Attributes$src('../assets/table.obj'),
+								_1: {ctor: '[]'}
+							}
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$CameraConfig$cam,
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_user$project$AFrame$entity,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: A2(
+								_user$project$AFrame_Primitives$box,
+								{
+									ctor: '::',
+									_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
+									_1: {
+										ctor: '::',
+										_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, 0.1, _user$project$Main$side),
+										_1: {
+											ctor: '::',
+											_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_user$project$AFrame_Primitives$box,
+									{
+										ctor: '::',
+										_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / 2, _user$project$Main$height / 2, 0),
+										_1: {
+											ctor: '::',
+											_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
+											_1: {
+												ctor: '::',
+												_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_user$project$AFrame_Primitives$box,
+										{
+											ctor: '::',
+											_0: A3(_user$project$AFrame_Primitives_Attributes$position, _user$project$Main$side / -2, _user$project$Main$height / 2, 0),
+											_1: {
+												ctor: '::',
+												_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, _user$project$Main$height, _user$project$Main$side),
+												_1: {
+													ctor: '::',
+													_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+													_1: {ctor: '[]'}
+												}
+											}
+										},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_user$project$AFrame_Primitives$box,
+											{
+												ctor: '::',
+												_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / 2),
+												_1: {
+													ctor: '::',
+													_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+													_1: {
+														ctor: '::',
+														_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+														_1: {ctor: '[]'}
+													}
+												}
+											},
+											{ctor: '[]'}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_user$project$AFrame_Primitives$box,
+												{
+													ctor: '::',
+													_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, _user$project$Main$height / 2, _user$project$Main$side / -2),
+													_1: {
+														ctor: '::',
+														_0: A3(_user$project$AFrame_Primitives_Attributes$scale, _user$project$Main$side, _user$project$Main$height, 0.1),
+														_1: {
+															ctor: '::',
+															_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+															_1: {ctor: '[]'}
+														}
+													}
+												},
+												{ctor: '[]'}),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _user$project$CameraConfig$bg,
+						_1: {ctor: '[]'}
+					}
+				}
 			}
-		}));
+		});
+};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		var _p1 = _p0._0;
+		return ((_elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$String$length(model.active),
+			0) > 0) && _elm_lang$core$Native_Utils.eq(_p1, model.active)) ? {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{active: ''}),
+			_1: _elm_lang$core$Platform_Cmd$none
+		} : {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{active: _p1}),
+			_1: _elm_lang$core$Platform_Cmd$none
+		};
+	});
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$Main$Model = function (a) {
+	return {active: a};
+};
+var _user$project$Main$init = {
+	ctor: '_Tuple2',
+	_0: _user$project$Main$Model(''),
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Main$main = _elm_lang$html$Html$program(
+	{init: _user$project$Main$init, view: _user$project$Main$view, subscriptions: _user$project$Main$subscriptions, update: _user$project$Main$update})();
+var _user$project$Main$Click = function (a) {
+	return {ctor: 'Click', _0: a};
+};
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
