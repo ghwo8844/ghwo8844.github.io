@@ -66,7 +66,7 @@ view model =
                 src "./assets/RageTable.mtl"
             ] [ ]
         ]
-        , entity [ objModel "table-obj" "table-mtl", position 0 10 0, scale 0.05 0.05 0.05 ] [ ]
+        , entity [ objModel "table-obj" "table-mtl", position 0 0 0, scale 0.05 0.05 0.05 ] [ ]
         , cam
         , entity [ ] [ 
                 box [ 

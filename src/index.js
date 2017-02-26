@@ -8870,7 +8870,7 @@ var _user$project$Main$view = function (model) {
 						_0: A2(_user$project$AFrame_Primitives_Attributes$objModel, 'table-obj', 'table-mtl'),
 						_1: {
 							ctor: '::',
-							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 10, 0),
+							_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
 							_1: {
 								ctor: '::',
 								_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 5.0e-2, 5.0e-2, 5.0e-2),
