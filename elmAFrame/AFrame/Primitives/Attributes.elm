@@ -25,6 +25,11 @@ import Char
 
 -- Mesh attributes
 
+objModel : String -> Attribute msg
+objModel id =
+    attribute "obj-model" ("obj: #" + id)
+
+
 
 colorToHex : Color -> String
 colorToHex cl =

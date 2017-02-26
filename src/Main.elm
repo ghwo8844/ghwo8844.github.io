@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (id)
 import AFrame exposing (scene, entity)
 import AFrame.Primitives exposing (assets, assetItem, box)
-import AFrame.Primitives.Attributes exposing (position, color, src, scale)
+import AFrame.Primitives.Attributes exposing (position, color, src, scale, objModel)
 import String exposing (length)
 import CameraConfig exposing (..)
 import ColorScheme exposing (..)
@@ -62,6 +62,7 @@ view model =
                 src "../assets/table.obj"
             ] [ ]
         ]
+        , entity [ objModel "table" ] [ ]
         , cam
         , entity [ ] [ 
                 box [ 
