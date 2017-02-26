@@ -2,8 +2,8 @@ module ColorScheme exposing (..)
 
 import Color exposing (rgb, Color)
 
-cursor : Color
-cursor =
+cursorColor : Color
+cursorColor =
     rgb 150 150 150
 
 ground : Color

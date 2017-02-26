@@ -14,7 +14,7 @@ var _user$project$CameraConfig$cam = A2(
 	_user$project$AFrame_Primitives_Camera$camera,
 	{
 		ctor: '::',
-		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 0),
+		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 5),
 		_1: {
 			ctor: '::',
 			_0: _user$project$AFrame_Primitives_Camera$far(1000),
@@ -30,7 +30,7 @@ var _user$project$CameraConfig$cam = A2(
 				_0: _user$project$AFrame_Primitives_Cursor$fuse(true),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 5),
+					_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$cursorColor),
 					_1: {ctor: '[]'}
 				}
 			},

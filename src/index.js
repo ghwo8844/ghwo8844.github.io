@@ -8661,7 +8661,7 @@ var _user$project$ColorScheme$grey = A3(_elm_lang$core$Color$rgb, 90, 99, 120);
 var _user$project$ColorScheme$orange = A3(_elm_lang$core$Color$rgb, 200, 173, 0);
 var _user$project$ColorScheme$background = A3(_elm_lang$core$Color$rgb, 10, 10, 10);
 var _user$project$ColorScheme$ground = A3(_elm_lang$core$Color$rgb, 70, 70, 70);
-var _user$project$ColorScheme$cursor = A3(_elm_lang$core$Color$rgb, 150, 150, 150);
+var _user$project$ColorScheme$cursorColor = A3(_elm_lang$core$Color$rgb, 150, 150, 150);
 
 var _user$project$Base$getBase = F2(
 	function (side, height) {
@@ -8782,7 +8782,7 @@ var _user$project$CameraConfig$cam = A2(
 	_user$project$AFrame_Primitives_Camera$camera,
 	{
 		ctor: '::',
-		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 0),
+		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 5),
 		_1: {
 			ctor: '::',
 			_0: _user$project$AFrame_Primitives_Camera$far(1000),
@@ -8798,7 +8798,7 @@ var _user$project$CameraConfig$cam = A2(
 				_0: _user$project$AFrame_Primitives_Cursor$fuse(true),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 5),
+					_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$cursorColor),
 					_1: {ctor: '[]'}
 				}
 			},

@@ -6,11 +6,11 @@ import AFrame.Primitives exposing (sky)
 import AFrame exposing (entity)
 import AFrame.Primitives.Attributes exposing (position, color, radius)
 import Html exposing (Html)
-import ColorScheme exposing (background)
+import ColorScheme exposing (..)
 
 cam = 
     camera [ position 0 1.6 5, far 1000 ] [
-        cursor [ fuse True , color cursor] [
+        cursor [ fuse True , color cursorColor] [
 
         ]
     ]
