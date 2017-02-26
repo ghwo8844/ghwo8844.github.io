@@ -1,9 +1,11 @@
 #layout {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
+  position: absolute !important;
   line-height: 1.2em;
-  background-color: rgba(10,10,10,0.8);
+  background-color: rgba(255,255,255,0.8);
   border-radius: 6px;
   padding: 1.7em 2em;
+  z-index: 999999 !important;
+}
+#noob {
+	z-index: -9999 !important;
 }

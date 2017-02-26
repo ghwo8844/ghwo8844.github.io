@@ -1,13 +1,13 @@
-var _user$project$Asset$tables = F5(
-	function (x, z, scaleX, scaleZ, num) {
+var _user$project$Asset$cylinders = F6(
+	function (x, z, scaleX, scaleY, scaleZ, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
 				ctor: '::',
-				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.35, z),
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 0.6, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
@@ -22,16 +22,88 @@ var _user$project$Asset$tables = F5(
 			},
 			{ctor: '[]'});
 	});
-var _user$project$Asset$chairs = F5(
-	function (x, z, scaleX, scaleZ, num) {
+var _user$project$Asset$spheres = F6(
+	function (x, z, scaleX, scaleY, scaleZ, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
 				ctor: '::',
-				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.35, z),
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 0.6, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$cubes = F6(
+	function (x, z, scaleX, scaleY, scaleZ, num) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$tables = F6(
+	function (x, z, scaleX, scaleY, scaleZ, num) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
+					_1: {
+						ctor: '::',
+						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+var _user$project$Asset$chairs = F6(
+	function (x, z, scaleX, scaleY, scaleZ, num) {
+		return A2(
+			_user$project$AFrame_Primitives$box,
+			{
+				ctor: '::',
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, scaleY, scaleZ),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
