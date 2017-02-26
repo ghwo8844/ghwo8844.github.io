@@ -59,7 +59,7 @@ view model =
         assets [ ] [
             assetItem [ 
                 id "table",
-                src "./assets/table.obj"
+                src "./assets/RageTable.obj"
             ] [ ]
         ]
         , entity [ objModel "table", position 0 10 0 ] [ ]

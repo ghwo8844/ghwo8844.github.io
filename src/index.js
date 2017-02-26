@@ -8832,7 +8832,7 @@ var _user$project$Main$view = function (model) {
 							_0: _elm_lang$html$Html_Attributes$id('table'),
 							_1: {
 								ctor: '::',
-								_0: _user$project$AFrame_Primitives_Attributes$src('./assets/table.obj'),
+								_0: _user$project$AFrame_Primitives_Attributes$src('./assets/RageTable.obj'),
 								_1: {ctor: '[]'}
 							}
 						},
