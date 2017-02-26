@@ -4,8 +4,8 @@ import Html exposing (..)
 import Html.Attributes exposing (id)
 import Html.Events exposing (onClick)
 import AFrame exposing (scene, entity)
-import AFrame.Primitives exposing (assets, assetItem, box)
-import AFrame.Primitives.Attributes exposing (position, color, src, scale, objModel, material)
+import AFrame.Primitives exposing (assets, assetItem, box, light)
+import AFrame.Primitives.Attributes exposing (position, color, src, scale, objModel, material, angle)
 import String exposing (length)
 import CameraConfig exposing (..)
 import ColorScheme exposing (..)
@@ -63,7 +63,12 @@ view model =
     div [ ] [
         scene [ ] [ 
             cam ,
-            entity [ ] [ 
+            light [ angle 180, position 0 10 0 ] [ ],
+            light [ angle 180, position 20 10 20 ] [ ],
+            light [ angle 180, position 20 10 -20 ] [ ],
+            light [ angle 180, position -20 10 -20 ] [ ],
+            light [ angle 180, position -20 10 20 ] [ ],
+            entity [ ] [
                     box [ 
                         position 0 0 0,
                         scale side 0.1 side,
