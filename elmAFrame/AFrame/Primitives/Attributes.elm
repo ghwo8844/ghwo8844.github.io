@@ -27,7 +27,7 @@ import Char
 
 material : Color -> Attribute msg
 material color =
-    attribute "material" ("color: #" ++ colorToHex color)
+    attribute "material" ("color: " ++ colorToHex color)
 
 objModel : String -> Attribute msg
 objModel idobj =
