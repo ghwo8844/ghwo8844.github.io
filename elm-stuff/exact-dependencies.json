@@ -1,0 +1,7 @@
+{
+    "elm-lang/html": "2.0.0",
+    "fredcy/elm-parseint": "2.0.0",
+    "eskimoblood/elm-color-extra": "3.2.3",
+    "elm-lang/core": "5.1.1",
+    "elm-lang/virtual-dom": "2.0.4"
+}
