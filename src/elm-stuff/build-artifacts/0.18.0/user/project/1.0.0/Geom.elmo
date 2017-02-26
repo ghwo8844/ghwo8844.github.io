@@ -1,0 +1,26 @@
+var _user$project$Geom$logo = F2(
+	function (msg, model) {
+		return A2(
+			_user$project$AFrame$entity,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
+					_user$project$AFrame_Primitives$box,
+					{
+						ctor: '::',
+						_0: A3(_user$project$AFrame_Primitives_Attributes$position, 10, 0, 0),
+						_1: {
+							ctor: '::',
+							_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 5, 10, 15),
+							_1: {
+								ctor: '::',
+								_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
+								_1: {ctor: '[]'}
+							}
+						}
+					},
+					{ctor: '[]'}),
+				_1: {ctor: '[]'}
+			});
+	});

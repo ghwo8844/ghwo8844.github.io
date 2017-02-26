@@ -1,0 +1,102 @@
+var _user$project$Base$getBase = F2(
+	function (side, height) {
+		return A2(
+			_user$project$AFrame$entity,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
+					_user$project$AFrame_Primitives$box,
+					{
+						ctor: '::',
+						_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 0),
+						_1: {
+							ctor: '::',
+							_0: A3(_user$project$AFrame_Primitives_Attributes$scale, side, 0.1, side),
+							_1: {
+								ctor: '::',
+								_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+								_1: {ctor: '[]'}
+							}
+						}
+					},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_user$project$AFrame_Primitives$box,
+						{
+							ctor: '::',
+							_0: A3(_user$project$AFrame_Primitives_Attributes$position, side / 2, height / 2, 0),
+							_1: {
+								ctor: '::',
+								_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, height, side),
+								_1: {
+									ctor: '::',
+									_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_user$project$AFrame_Primitives$box,
+							{
+								ctor: '::',
+								_0: A3(_user$project$AFrame_Primitives_Attributes$position, side / -2, height / 2, 0),
+								_1: {
+									ctor: '::',
+									_0: A3(_user$project$AFrame_Primitives_Attributes$scale, 0.1, height, side),
+									_1: {
+										ctor: '::',
+										_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+										_1: {ctor: '[]'}
+									}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_user$project$AFrame_Primitives$box,
+								{
+									ctor: '::',
+									_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, height / 2, side / 2),
+									_1: {
+										ctor: '::',
+										_0: A3(_user$project$AFrame_Primitives_Attributes$scale, side, height, 0.1),
+										_1: {
+											ctor: '::',
+											_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_user$project$AFrame_Primitives$box,
+									{
+										ctor: '::',
+										_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, height / 2, side / -2),
+										_1: {
+											ctor: '::',
+											_0: A3(_user$project$AFrame_Primitives_Attributes$scale, side, height, 0.1),
+											_1: {
+												ctor: '::',
+												_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$ground),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			});
+	});

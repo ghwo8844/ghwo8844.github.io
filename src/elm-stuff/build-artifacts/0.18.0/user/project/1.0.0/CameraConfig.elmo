@@ -1,0 +1,39 @@
+var _user$project$CameraConfig$bg = A2(
+	_user$project$AFrame_Primitives$sky,
+	{
+		ctor: '::',
+		_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$background),
+		_1: {
+			ctor: '::',
+			_0: _user$project$AFrame_Primitives_Attributes$radius(500),
+			_1: {ctor: '[]'}
+		}
+	},
+	{ctor: '[]'});
+var _user$project$CameraConfig$cam = A2(
+	_user$project$AFrame_Primitives_Camera$camera,
+	{
+		ctor: '::',
+		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 0),
+		_1: {
+			ctor: '::',
+			_0: _user$project$AFrame_Primitives_Camera$far(1000),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_user$project$AFrame_Primitives_Cursor$cursor,
+			{
+				ctor: '::',
+				_0: _user$project$AFrame_Primitives_Cursor$fuse(true),
+				_1: {
+					ctor: '::',
+					_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 0, 5),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
