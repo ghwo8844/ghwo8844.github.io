@@ -44,9 +44,9 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
         Chair ->
-            ( addAsset (chairs 0 0 0 0) , Cmd.none)
+            ( addAsset (chairs 0 0 3 3) , Cmd.none)
         Table ->
-            ( addAsset (tables 0 0 0 0) , Cmd.none)
+            ( addAsset (tables 0 0 3 3) , Cmd.none)
 
 side =
     30.0
@@ -57,42 +57,40 @@ height =
 view : Model -> Html Msg
 view model =
     div [ id "container" ] [
-        div [ id "aframe" ] [
-            scene [ ] [ 
-                cam
-                , entity [ ] [ 
-                        box [ 
-                            position 0 0 0,
-                            scale side 0.1 side,
-                            color ground
-                        ] [ ],
-                        box [ 
-                            position (side / 2) (height / 2) 0,
-                            scale 0.1 height side,
-                            color ground
-                        ] [ ],
-                        box [ 
-                            position (side / -2) (height / 2) 0,
-                            scale 0.1 height side,
-                            color ground
-                        ] [ ],
-                        box [ 
-                            position 0 (height / 2) (side / 2),
-                            scale side height 0.1,
-                            color ground
-                        ] [ ],
-                        box [ 
-                            position 0 (height / 2) (side / -2),
-                            scale side height 0.1,
-                            color ground
-                        ] [ ]
-                    ]
-                , bg
-                , entity [ ] assetList
-            ]   
-        ],
+        scene [ ] [ 
+            cam ,
+            entity [ ] [ 
+                    box [ 
+                        position 0 0 0,
+                        scale side 0.1 side,
+                        color ground
+                    ] [ ] ,
+                    box [ 
+                        position (side / 2) (height / 2) 0,
+                        scale 0.1 height side,
+                        color ground
+                    ] [ ] ,
+                    box [ 
+                        position (side / -2) (height / 2) 0,
+                        scale 0.1 height side,
+                        color ground
+                    ] [ ] ,
+                    box [ 
+                        position 0 (height / 2) (side / 2),
+                        scale side height 0.1,
+                        color ground
+                    ] [ ] ,
+                    box [ 
+                        position 0 (height / 2) (side / -2),
+                        scale side height 0.1,
+                        color ground
+                    ] [ ]
+                ] ,
+            bg ,
+            entity [ ] assetList
+        ] ,
         div [ id "layout" ] [
-            button [ onClick Chair ] [ text "Chair" ],
+            button [ onClick Chair ] [ text "Chair" ] ,
             button [ onClick Table ] [ text "Table" ]
         ]
     ]
