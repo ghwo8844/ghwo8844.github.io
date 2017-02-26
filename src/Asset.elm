@@ -4,30 +4,31 @@ import ColorScheme exposing (..)
 import AFrame exposing (entity)
 import AFrame.Primitives exposing (box)
 import Html exposing (Html, node, Attribute)
+import Html.Attributes exposing (id)
 import AFrame.Primitives.Attributes exposing (position, color, scale)
+import Dict exposing (Dict, insert)
+import Html.Events exposing (onClick)
 
-assetList : List (Html msg)
-assetList = 
-    []
+addAsset : Int -> Dict Int (Html msg) -> Html msg -> Dict Int (Html msg)
+addAsset num arr message =
+    insert num message arr
 
-addAsset : Html msg -> List (Html msg)
-addAsset message =
-    message :: assetList
-
-chairs : Float -> Float -> Float -> Float -> Html msg
-chairs x z scaleX scaleZ =
+chairs : Float -> Float -> Float -> Float -> Int -> Html msg
+chairs x z scaleX scaleZ num =
     box [ 
         position x 0.35 z,
         scale scaleX 0.6 scaleZ,
-        color red
+        color red,
+        id (toString num)
     ] [ ]
 
-tables : Float -> Float -> Float -> Float -> Html msg
-tables x z scaleX scaleZ =
+tables : Float -> Float -> Float -> Float -> Int -> Html msg
+tables x z scaleX scaleZ num =
     box [
         position x 0.35 z,
         scale scaleX 0.6 scaleZ,
-        color orange
+        color orange,
+        id (toString num)
     ] [ ]
 
 

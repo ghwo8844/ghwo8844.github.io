@@ -25,6 +25,12 @@ import Char
 
 -- Mesh attributes
 
+mouseCursor : Attribute msg
+mouseCursor =
+    attribute "mouse-cursor" ""
+
+{-eventSet : String ->-}   
+
 material : Color -> Attribute msg
 material color =
     attribute "material" ("color: " ++ colorToHex color)

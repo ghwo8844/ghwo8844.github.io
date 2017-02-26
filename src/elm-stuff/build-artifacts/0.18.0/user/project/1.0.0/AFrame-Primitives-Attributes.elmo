@@ -284,3 +284,4 @@ var _user$project$AFrame_Primitives_Attributes$material = function (color) {
 			'color: ',
 			_user$project$AFrame_Primitives_Attributes$colorToHex(color)));
 };
+var _user$project$AFrame_Primitives_Attributes$mouseCursor = A2(_elm_lang$html$Html_Attributes$attribute, 'mouse-cursor', '');

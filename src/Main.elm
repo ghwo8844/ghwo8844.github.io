@@ -11,18 +11,19 @@ import CameraConfig exposing (..)
 import ColorScheme exposing (..)
 import Base exposing (..)
 import Asset exposing (..)
+import Dict exposing (Dict, insert, empty, values)
 
 
-type alias Model = List (Html Msg)
+type alias Model = { dic : Dict Int (Html Msg) , index : Int }
 
 
 type Msg
-    = Chair | Table
+    = Chair | Table | Click String
 
 
 init : (Model, Cmd Msg)
 init =
-    ([], Cmd.none)  
+    ({dic = empty, index = 0}, Cmd.none)  
 
 
 main : Program Never Model Msg
@@ -44,9 +45,12 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
         Chair ->
-            ( addAsset (chairs 0 0 0.3 0.3) , Cmd.none)
+            ( { model | dic = (addAsset model.index model.dic (chairs 0 0 0.3 0.3 model.index)), index = model.index + 1} , Cmd.none)
         Table ->
-            ( addAsset (tables 0 0 1.5 0.7) , Cmd.none)
+            ( { model | dic = (addAsset model.index model.dic (tables 0 0 0.7 1.5 model.index)), index = model.index + 1} , Cmd.none)
+        Click string ->
+            ( model , Cmd.none)
+
 
 side =
     30.0
@@ -56,7 +60,7 @@ height =
 
 view : Model -> Html Msg
 view model =
-    div [ id "container" ] [
+    div [ ] [
         scene [ ] [ 
             cam ,
             entity [ ] [ 
@@ -87,7 +91,7 @@ view model =
                     ] [ ]
                 ] ,
             bg ,
-            entity [ ] model
+            entity [ ] (values (model.dic))
         ] ,
         div [ id "layout" ] [
             button [ onClick Chair ] [ text "Chair" ] ,

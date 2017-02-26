@@ -8728,6 +8728,7 @@ var _user$project$AFrame_Primitives_Attributes$material = function (color) {
 			'color: ',
 			_user$project$AFrame_Primitives_Attributes$colorToHex(color)));
 };
+var _user$project$AFrame_Primitives_Attributes$mouseCursor = A2(_elm_lang$html$Html_Attributes$attribute, 'mouse-cursor', '');
 
 var _user$project$AFrame_Primitives_Camera$wasdControlsEnabled = function (value) {
 	return A2(
@@ -8793,8 +8794,8 @@ var _user$project$ColorScheme$background = A3(_elm_lang$core$Color$rgb, 10, 10, 
 var _user$project$ColorScheme$ground = A3(_elm_lang$core$Color$rgb, 70, 70, 70);
 var _user$project$ColorScheme$cursorColor = A3(_elm_lang$core$Color$rgb, 150, 150, 150);
 
-var _user$project$Asset$tables = F4(
-	function (x, z, scaleX, scaleZ) {
+var _user$project$Asset$tables = F5(
+	function (x, z, scaleX, scaleZ, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -8806,14 +8807,19 @@ var _user$project$Asset$tables = F4(
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			},
 			{ctor: '[]'});
 	});
-var _user$project$Asset$chairs = F4(
-	function (x, z, scaleX, scaleZ) {
+var _user$project$Asset$chairs = F5(
+	function (x, z, scaleX, scaleZ, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -8825,16 +8831,21 @@ var _user$project$Asset$chairs = F4(
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			},
 			{ctor: '[]'});
 	});
-var _user$project$Asset$assetList = {ctor: '[]'};
-var _user$project$Asset$addAsset = function (message) {
-	return {ctor: '::', _0: message, _1: _user$project$Asset$assetList};
-};
+var _user$project$Asset$addAsset = F3(
+	function (num, arr, message) {
+		return A3(_elm_lang$core$Dict$insert, num, message, arr);
+	});
 
 var _user$project$Base$getBase = F2(
 	function (side, height) {
@@ -8984,20 +8995,39 @@ var _user$project$Main$side = 30.0;
 var _user$project$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		if (_p0.ctor === 'Chair') {
-			return {
-				ctor: '_Tuple2',
-				_0: _user$project$Asset$addAsset(
-					A4(_user$project$Asset$chairs, 0, 0, 0.3, 0.3)),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
-		} else {
-			return {
-				ctor: '_Tuple2',
-				_0: _user$project$Asset$addAsset(
-					A4(_user$project$Asset$tables, 0, 0, 1.5, 0.7)),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
+		switch (_p0.ctor) {
+			case 'Chair':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							dic: A3(
+								_user$project$Asset$addAsset,
+								model.index,
+								model.dic,
+								A5(_user$project$Asset$chairs, 0, 0, 0.3, 0.3, model.index)),
+							index: model.index + 1
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Table':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							dic: A3(
+								_user$project$Asset$addAsset,
+								model.index,
+								model.dic,
+								A5(_user$project$Asset$tables, 0, 0, 0.7, 1.5, model.index)),
+							index: model.index + 1
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
 var _user$project$Main$subscriptions = function (model) {
@@ -9005,19 +9035,22 @@ var _user$project$Main$subscriptions = function (model) {
 };
 var _user$project$Main$init = {
 	ctor: '_Tuple2',
-	_0: {ctor: '[]'},
+	_0: {dic: _elm_lang$core$Dict$empty, index: 0},
 	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Main$Model = F2(
+	function (a, b) {
+		return {dic: a, index: b};
+	});
+var _user$project$Main$Click = function (a) {
+	return {ctor: 'Click', _0: a};
 };
 var _user$project$Main$Table = {ctor: 'Table'};
 var _user$project$Main$Chair = {ctor: 'Chair'};
 var _user$project$Main$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('container'),
-			_1: {ctor: '[]'}
-		},
+		{ctor: '[]'},
 		{
 			ctor: '::',
 			_0: A2(
@@ -9135,7 +9168,7 @@ var _user$project$Main$view = function (model) {
 								_0: A2(
 									_user$project$AFrame$entity,
 									{ctor: '[]'},
-									model),
+									_elm_lang$core$Dict$values(model.dic)),
 								_1: {ctor: '[]'}
 							}
 						}

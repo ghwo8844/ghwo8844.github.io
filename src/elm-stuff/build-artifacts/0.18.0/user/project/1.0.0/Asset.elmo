@@ -1,5 +1,5 @@
-var _user$project$Asset$tables = F4(
-	function (x, z, scaleX, scaleZ) {
+var _user$project$Asset$tables = F5(
+	function (x, z, scaleX, scaleZ, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -11,14 +11,19 @@ var _user$project$Asset$tables = F4(
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			},
 			{ctor: '[]'});
 	});
-var _user$project$Asset$chairs = F4(
-	function (x, z, scaleX, scaleZ) {
+var _user$project$Asset$chairs = F5(
+	function (x, z, scaleX, scaleZ, num) {
 		return A2(
 			_user$project$AFrame_Primitives$box,
 			{
@@ -30,13 +35,18 @@ var _user$project$Asset$chairs = F4(
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$id(
+								_elm_lang$core$Basics$toString(num)),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			},
 			{ctor: '[]'});
 	});
-var _user$project$Asset$assetList = {ctor: '[]'};
-var _user$project$Asset$addAsset = function (message) {
-	return {ctor: '::', _0: message, _1: _user$project$Asset$assetList};
-};
+var _user$project$Asset$addAsset = F3(
+	function (num, arr, message) {
+		return A3(_elm_lang$core$Dict$insert, num, message, arr);
+	});
