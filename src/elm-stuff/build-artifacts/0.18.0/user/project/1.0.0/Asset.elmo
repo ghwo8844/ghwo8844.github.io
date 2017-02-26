@@ -4,10 +4,10 @@ var _user$project$Asset$tables = F4(
 			_user$project$AFrame_Primitives$box,
 			{
 				ctor: '::',
-				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.35, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 0.6, scaleZ),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
@@ -23,10 +23,10 @@ var _user$project$Asset$chairs = F4(
 			_user$project$AFrame_Primitives$box,
 			{
 				ctor: '::',
-				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.35, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 0.6, scaleZ),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),

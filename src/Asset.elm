@@ -17,16 +17,16 @@ addAsset message =
 chairs : Float -> Float -> Float -> Float -> Html msg
 chairs x z scaleX scaleZ =
     box [ 
-        position x 0.5 z,
-        scale scaleX 1 scaleZ,
+        position x 0.35 z,
+        scale scaleX 0.6 scaleZ,
         color red
     ] [ ]
 
 tables : Float -> Float -> Float -> Float -> Html msg
 tables x z scaleX scaleZ =
     box [
-        position x 0.5 z,
-        scale scaleX 1 scaleZ,
+        position x 0.35 z,
+        scale scaleX 0.6 scaleZ,
         color orange
     ] [ ]
 

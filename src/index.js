@@ -8799,10 +8799,10 @@ var _user$project$Asset$tables = F4(
 			_user$project$AFrame_Primitives$box,
 			{
 				ctor: '::',
-				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.35, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 0.6, scaleZ),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$orange),
@@ -8818,10 +8818,10 @@ var _user$project$Asset$chairs = F4(
 			_user$project$AFrame_Primitives$box,
 			{
 				ctor: '::',
-				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.5, z),
+				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, 0.35, z),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 1, scaleZ),
+					_0: A3(_user$project$AFrame_Primitives_Attributes$scale, scaleX, 0.6, scaleZ),
 					_1: {
 						ctor: '::',
 						_0: _user$project$AFrame_Primitives_Attributes$color(_user$project$ColorScheme$red),
@@ -8988,14 +8988,14 @@ var _user$project$Main$update = F2(
 			return {
 				ctor: '_Tuple2',
 				_0: _user$project$Asset$addAsset(
-					A4(_user$project$Asset$chairs, 0, 0, 3, 3)),
+					A4(_user$project$Asset$chairs, 0, 0, 0.3, 0.3)),
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
 		} else {
 			return {
 				ctor: '_Tuple2',
 				_0: _user$project$Asset$addAsset(
-					A4(_user$project$Asset$tables, 0, 0, 3, 3)),
+					A4(_user$project$Asset$tables, 0, 0, 1.5, 0.7)),
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
 		}
@@ -9135,7 +9135,7 @@ var _user$project$Main$view = function (model) {
 								_0: A2(
 									_user$project$AFrame$entity,
 									{ctor: '[]'},
-									_user$project$Asset$assetList),
+									model),
 								_1: {ctor: '[]'}
 							}
 						}

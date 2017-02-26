@@ -44,9 +44,9 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
         Chair ->
-            ( addAsset (chairs 0 0 3 3) , Cmd.none)
+            ( addAsset (chairs 0 0 0.3 0.3) , Cmd.none)
         Table ->
-            ( addAsset (tables 0 0 3 3) , Cmd.none)
+            ( addAsset (tables 0 0 1.5 0.7) , Cmd.none)
 
 side =
     30.0
@@ -87,7 +87,7 @@ view model =
                     ] [ ]
                 ] ,
             bg ,
-            entity [ ] assetList
+            entity [ ] model
         ] ,
         div [ id "layout" ] [
             button [ onClick Chair ] [ text "Chair" ] ,
