@@ -14,7 +14,7 @@ var _user$project$CameraConfig$cam = A2(
 	_user$project$AFrame_Primitives_Camera$camera,
 	{
 		ctor: '::',
-		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 1.6, 5),
+		_0: A3(_user$project$AFrame_Primitives_Attributes$position, 0, 9, 0),
 		_1: {
 			ctor: '::',
 			_0: _user$project$AFrame_Primitives_Camera$far(1000),

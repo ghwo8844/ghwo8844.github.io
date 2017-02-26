@@ -6,6 +6,16 @@
   padding: 1.7em 2em;
   z-index: 999999 !important;
 }
+#layout1 {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  line-height: 1.2em;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 6px;
+  padding: 1.7em 2em;
+  text-align: center;
+}
 #noob {
 	z-index: -9999 !important;
 }

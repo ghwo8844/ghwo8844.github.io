@@ -2,7 +2,7 @@ module Asset exposing (..)
 
 import ColorScheme exposing (..)
 import AFrame exposing (entity)
-import AFrame.Primitives exposing (box)
+import AFrame.Primitives exposing (box, sphere, cylinder)
 import Html exposing (Html, node, Attribute)
 import Html.Attributes exposing (id)
 import AFrame.Primitives.Attributes exposing (position, color, scale)
@@ -42,7 +42,7 @@ cubes x z scaleX scaleY scaleZ num =
 
 spheres : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
 spheres x z scaleX scaleY scaleZ num =
-    box [ 
+    sphere [ 
         position x (scaleY / 2 + 0.5) z,
         scale scaleX scaleY scaleZ,
         color red,
@@ -51,7 +51,7 @@ spheres x z scaleX scaleY scaleZ num =
 
 cylinders : Float -> Float -> Float -> Float -> Float -> Int -> Html msg
 cylinders x z scaleX scaleY scaleZ num =
-    box [
+    cylinder [
         position x (scaleY / 2 + 0.5) z,
         scale scaleX scaleY scaleZ,
         color orange,

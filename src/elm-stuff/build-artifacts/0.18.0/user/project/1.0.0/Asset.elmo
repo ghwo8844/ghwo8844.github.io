@@ -1,7 +1,7 @@
 var _user$project$Asset$cylinders = F6(
 	function (x, z, scaleX, scaleY, scaleZ, num) {
 		return A2(
-			_user$project$AFrame_Primitives$box,
+			_user$project$AFrame_Primitives$cylinder,
 			{
 				ctor: '::',
 				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
@@ -25,7 +25,7 @@ var _user$project$Asset$cylinders = F6(
 var _user$project$Asset$spheres = F6(
 	function (x, z, scaleX, scaleY, scaleZ, num) {
 		return A2(
-			_user$project$AFrame_Primitives$box,
+			_user$project$AFrame_Primitives$sphere,
 			{
 				ctor: '::',
 				_0: A3(_user$project$AFrame_Primitives_Attributes$position, x, (scaleY / 2) + 0.5, z),
